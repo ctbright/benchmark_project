@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include "algorithms.h"
+#include "benchmark.h"
 
 int main() {
     using namespace std::chrono;
@@ -20,29 +21,9 @@ int main() {
         original_data.push_back(dis(gen));
     }
     
-    // Test std::sort
-    std::vector<int> data1 = original_data;  // Make copy
-    auto start = high_resolution_clock::now();
-    std_sort_wrapper(data1);
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(end - start);
-    std::cout << "std::sort: " << duration.count() << " microseconds\n";
-    
-    // Test qsort
-    std::vector<int> data2 = original_data;  // Make copy
-    start = high_resolution_clock::now();
-    qsort_wrapper(data2);
-    end = high_resolution_clock::now();
-    duration = duration_cast<microseconds>(end - start);
-    std::cout << "qsort: " << duration.count() << " microseconds\n";
-    
-    // Test quicksort
-    std::vector<int> data3 = original_data;  // Make copy
-    start = high_resolution_clock::now();
-    quicksort_wrapper(data3);
-    end = high_resolution_clock::now();
-    duration = duration_cast<microseconds>(end - start);
-    std::cout << "quicksort: " << duration.count() << " microseconds\n";
+    time_algorithm(original_data, std_sort_wrapper, "std::sort");
+    time_algorithm(original_data, qsort_wrapper, "qsort");
+    time_algorithm(original_data, quicksort_wrapper, "quicksort");
     
     return 0;
 }
