@@ -1,0 +1,37 @@
+# Compiled executables
+benchmark
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
+
+# Compiled libraries
+*.a
+*.lib
+
+# Debug files
+*.dSYM/
+*.pdb
+
+# IDE/Editor files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directories
+build/
+cmake-build-*/
+
+# Output files your benchmark might generate
+*.csv
+results/
+output/
+
+# Temporary files
+*.tmp
+*.temp
