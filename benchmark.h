@@ -32,7 +32,6 @@ public:
     void export_to_csv(const std::vector<BenchmarkResult>& results, const std::string& filename);
 };
 
-// Template implementation (must be in header)
 template<typename SortFunction>
 BenchmarkResult BenchmarkRunner::run_statistical_benchmark(const std::vector<int>& original_data,
                                                           SortFunction sort_func,
